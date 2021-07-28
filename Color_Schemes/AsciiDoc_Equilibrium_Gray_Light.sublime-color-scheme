@@ -171,13 +171,13 @@
         {
             "name": "\u2666 Entity inherited-class",
             "scope": "entity.other.inherited-class",
-            "foreground": "color(var(base09),  saturation(- 80%))",
+            "foreground": "color(var(base09) saturation(- 80%))",
             "font_style": "italic"
         },
         {
             "name": "\u2666 String embedded-source",
             "scope": "string.quoted source",
-            "foreground": "color(var(base0A),  saturation(- 40%))"
+            "foreground": "color(var(base0A) saturation(- 40%))"
         },
         {
             "name": "\u2666 String constant",
@@ -202,22 +202,22 @@
         {
             "name": "\u2666 Support.function",
             "scope": "support.function",
-            "foreground": "color(var(base0A),  saturation(- 30%))"
+            "foreground": "color(var(base0A) saturation(- 30%))"
         },
         {
             "name": "\u2666 Support.constant",
             "scope": "support.constant",
-            "foreground": "color(var(base08),  saturation(- 40%))"
+            "foreground": "color(var(base08) saturation(- 40%))"
         },
         {
             "name": "c C/C++ Preprocessor Line",
             "scope": "meta.preprocessor.c",
-            "foreground": "color(var(base0A),  saturation(- 50%))"
+            "foreground": "color(var(base0A) saturation(- 50%))"
         },
         {
             "name": "c C/C++ Preprocessor Directive",
             "scope": "meta.preprocessor.c keyword",
-            "foreground": "color(var(base0A),  saturation(- 60%))"
+            "foreground": "color(var(base0A) saturation(- 60%))"
         },
         {
             "name": "j Entity Name Type",
@@ -243,62 +243,62 @@
         {
             "name": "\u2718 Meta.tag.\u00aball\u00bb",
             "scope": "meta.tag, meta.tag entity",
-            "foreground": "color(var(base0A),  saturation(- 20%))"
+            "foreground": "color(var(base0A) saturation(- 20%))"
         },
         {
             "name": "\u2718 Meta.tag.inline",
             "scope": "source entity.name.tag, source entity.other.attribute-name, meta.tag.inline, meta.tag.inline entity",
-            "foreground": "color(var(base09),  saturation(- 20%))"
+            "foreground": "color(var(base09) saturation(- 20%))"
         },
         {
             "name": "\u2718 Namespaces",
             "scope": "entity.name.tag.namespace, entity.other.attribute-name.namespace",
-            "foreground": "color(var(base08),  saturation(- 20%))"
+            "foreground": "color(var(base08) saturation(- 20%))"
         },
         {
             "name": "\u00a7 css tag-name",
             "scope": "meta.selector.css entity.name.tag",
-            "foreground": "color(var(base09),  saturation(- 40%))"
+            "foreground": "color(var(base09) saturation(- 40%))"
         },
         {
             "name": "\u00a7 css:pseudo-class",
             "scope": "meta.selector.css entity.other.attribute-name.tag.pseudo-class",
-            "foreground": "color(var(base0A),  saturation(- 60%))"
+            "foreground": "color(var(base0A) saturation(- 60%))"
         },
         {
             "name": "\u00a7 css#id",
             "scope": "meta.selector.css entity.other.attribute-name.id",
-            "foreground": "color(var(base0A),  saturation(- 50%))"
+            "foreground": "color(var(base0A) saturation(- 50%))"
         },
         {
             "name": "\u00a7 css.class",
             "scope": "meta.selector.css entity.other.attribute-name.class",
-            "foreground": "color(var(base09),  saturation(- 70%))"
+            "foreground": "color(var(base09) saturation(- 70%))"
         },
         {
             "name": "\u00a7 css property-name:",
             "scope": "support.type.property-name.css",
-            "foreground": "color(var(base09),  saturation(- 40%))"
+            "foreground": "color(var(base09) saturation(- 40%))"
         },
         {
             "name": "\u00a7 css property-value;",
             "scope": "meta.property-group support.constant.property-value.css, meta.property-value support.constant.property-value.css",
-            "foreground": "color(var(base0A),  saturation(- 20%))"
+            "foreground": "color(var(base0A) saturation(- 20%))"
         },
         {
             "name": "\u00a7 css @at-rule",
             "scope": "meta.preprocessor.at-rule keyword.control.at-rule",
-            "foreground": "color(var(base0A),  saturation(- 50%))"
+            "foreground": "color(var(base0A) saturation(- 50%))"
         },
         {
             "name": "\u00a7 css additional-constants",
             "scope": "meta.property-value support.constant.named-color.css, meta.property-value constant",
-            "foreground": "color(var(base09),  saturation(- 10%))"
+            "foreground": "color(var(base09) saturation(- 10%))"
         },
         {
             "name": "\u00a7 css constructor.argument",
             "scope": "meta.constructor.argument.css",
-            "foreground": "color(var(base0A),  saturation(- 60%))"
+            "foreground": "color(var(base0A) saturation(- 60%))"
         },
         {
             "name": "\u2387 diff.header",

@@ -6,7 +6,7 @@ There are two use cases for this:
 . A manuscript has existing numbers in the chapter headings (== Chapter 9: Saving the Cat), but a chapter has been moved/deleted/added.
 . The chapter headings are not yet numbered (== Saving the Cat), but the author wishes them to be.
 
-This command can be invoked via the Command Palette (kbd:[ctrl] + kbd:[shift] + kbd:[P]`): "`AsciiDoc: Renumber Chapters`".
+This command can be invoked via the Command Palette (`ctrl` + `shift` + `P``): "`AsciiDoc: Renumber Chapters`".
 It can also be invoked via the Tools menu: `Tools` > `AsciiDoc` > `Renumber Chapters`.
 (There is no predefined key shortcut, since this command is not used that often, but one can certainly be defined.)
 

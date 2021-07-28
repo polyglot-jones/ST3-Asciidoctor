@@ -40,7 +40,7 @@ And you get this:
 [[toc]]
 == Table of Contents
 
-Use the ##toc## `tab` snippet to place this at the top of your document to tell AsciiDoc to insert a table of contents.
+Type: ##toc## `tab` to place the following into your document (to tell AsciiDoc to insert a table of contents there).
 
 ----
 :toc: macro

@@ -72,6 +72,91 @@ class AsciidocRunCommandsCommand(TextCommand):
                 self.view.run_command(command[0], *command[1:])
 
 
+class AsciidocRenumberChaptersCommand(TextCommand):
+    """ 
+    Renumbers all chapter headings. 
+    For example, if you have
+        ...
+        == Chapter Nine: Saving the Cat
+        == Chapter Ten: The Mirror Moment
+        == Chapter Eleven: Hero Status Achieved
+        ...
+    and you insert a new chapter between Ten and Eleven (== Chapter X: A Stumbling Block)
+    then renumbering will get you:
+        ...
+        == Chapter Nine: Saving the Cat
+        == Chapter Ten: The Mirror Moment
+        == Chapter Eleven: A Stumbling Block
+        == Chapter Twelve: Hero Status Achieved
+        ...
+    It also works for all of the following formats:
+        == Chapter 9: Saving the Cat
+        == Nine: Saving the Cat
+        == 9: Saving the Cat
+        == Chapter 9
+        == Nine
+        == 9
+    Whatever format it finds, it will replicate.
+    """ 
+    def run(self, edit):
+        self._edit = edit
+        self._process_text()
+
+    def _num_to_words(self, num):
+        '''Convert an integer between 1-99 into words'''
+        units = ['','one','two','three','four','five','six','seven','eight','nine']
+        teens = ['','eleven','twelve','thirteen','fourteen','fifteen','sixteen', \
+                 'seventeen','eighteen','nineteen']
+        tens = ['','ten','twenty','thirty','forty','fifty','sixty','seventy', \
+                'eighty','ninety']
+        words = []
+        if num==0: words.append('zero')
+        else:
+            numStr = '%d'% num 
+            numStr = numStr.zfill(2)
+            t,u = int(numStr[0]),int(numStr[1])
+            if t>1:
+                words.append(tens[t])
+                if u>=1: words.append(units[u])
+            elif t==1:
+                if u>=1: words.append(teens[u])
+                else: words.append(tens[t])
+            else:
+                if u>=1: words.append(units[u])
+        return ' '.join(words)
+
+    def _get_file_content(self):
+        return self.view.substr(sublime.Region(0, self.view.size()))
+
+    def _update_file(self, doc):
+        self.view.replace(self._edit, sublime.Region(0, self.view.size()), doc)
+
+    def _process_text(self):
+        txt = self._get_file_content()
+        lines = txt.splitlines()
+        result = []
+        chapter_number = 0
+
+        for line in lines:
+            m = re.match(r"^== *(Chapter )?([^:]*)(.*)", line, flags=re.IGNORECASE)
+            if m:
+                chapter_prefix = m.group(1)
+                chapter_prefix = chapter_prefix.title() if chapter_prefix else ""
+                wrong_number = m.group(2)
+                chapter_title = m.group(3)
+                chapter_number += 1
+                if wrong_number.isdigit():
+                    result.append("== {}{}{}".format(chapter_prefix,chapter_number,chapter_title))
+                elif re.match(r"^[- a-z]+$", wrong_number, flags=re.IGNORECASE):
+                    result.append("== {}{}{}".format(chapter_prefix,self._num_to_words(chapter_number).title(),chapter_title))
+                else:
+                    result.append(line)
+            else:
+                result.append(line)
+
+        self._update_file( "\n".join(result))
+
+
 class AsciidocProseFixupCommand(TextCommand):
     """
     Cleans up a manuscript that has been converted to AsciiDoc, e.g. by PanDoc...
@@ -175,3 +260,4 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r' *-- *`"', '{mdash}`"', txt)
 
         self._update_file(txt)
+        

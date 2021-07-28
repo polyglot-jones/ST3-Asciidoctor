@@ -5,7 +5,7 @@ For example:
 
 `pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --extract-media=extracted-media The_Manuscript.docx > The_Manuscript.adoc`
 
-This command can be invoked via the Command Palette (`ctrl-shift-P`): "`AsciiDoc: Fix Up Converted Prose`".
+This command can be invoked via the Command Palette (kbd:[ctrl] + kbd:[shift] + kbd:[P]): "`AsciiDoc: Fix Up Converted Prose`".
 It can also be invoked via the Tools menu: `Tools` > `AsciiDoc` > `Fix Up Converted Prose`.
 (There is no predefined key shortcut, since this command is not used that often, but one can certainly be defined.)
 
@@ -16,8 +16,8 @@ IMPORTANT: Make a copy of the manuscript before running this command.
 Then, *compare the original file to the fixed-up one* to make sure every change is proper.
 
 TIP: On Windows, download the free WinMerge program to do the comparison.
-It makes it simple to navigate between differences (alt-down-arrow/alt-up-arrow).
-To revert a particular difference, just press alt-right-arrow (if the original is on the left), or alt-left-arrow (if the original is on the right).
+It makes it simple to navigate between differences (kbd:[alt] + kbd:[down-arrow] or kbd:[alt] + kbd:[up-arrow]).
+To revert a particular difference, just press kbd:[alt] + kbd:[right-arrow] (if the original is on the left), or kbd:[alt] + kbd:[left-arrow] (if the original is on the right).
 
 This command performs over 20 operations.
 Sorry, but there is no configuration for this.

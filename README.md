@@ -52,9 +52,10 @@ The original package is buggy, and that repository has not been maintained (stal
 Numerous pull requests with fixes to some of the known problems were never merged.
 Furthermore, the original package uses the old `.tmLanguage` syntax format.
 
-This fork addressed all of that and has becomes a "usable Alpha" as of early 2021.
-It's used daily by many folks on large, complicated AsciiDoc projects.
-However, the implementation details are subject to change (e.g. how the syntax scopes are named).
+This fork addresses all of that.
+This is currently considered a "usable alpha" (as of early 2021).
+Indeed, it's used daily on large, complicated AsciiDoc projects.
+The "alpha" status merely reflects that implementation details are subject to change (e.g. how the syntax scopes are named).
 
 Here's a brief summary of how the original package was improved so far:
 
@@ -64,15 +65,15 @@ Here's a brief summary of how the original package was improved so far:
 
 ## Goals
 
-. *Not settling for a poor syntax-highlighting implementation.* The old (`.tmLanguage`) syntax definition often misinterpreted perfectly valid syntax as being something else. This would cause the highlighting to go wonky part-way through the document.
+1. *Not settling for a poor syntax-highlighting implementation.* The old (`.tmLanguage`) syntax definition often misinterpreted perfectly valid syntax as being something else. This would cause the highlighting to go wonky part-way through the document.
 So markup features that were causing trouble have been disabled here, because "less is more" when having to chose between feature richness and features that actually work.
 
-. *To reach enough maturity to warrant becoming a full-fledged package hosted on [Package Control].*
+2. *To reach enough maturity to warrant becoming a full-fledged package hosted on [Package Control].*
 Unless and until somebody surprises the AsciiDoc community by releasing an AsciiDoc [language server], this package will have to suffice.
 
-. *To provide excellent documentation and responsive support to encourage adoption and feedback.*
+3. *To encourage adoption and feedback,* by providing excellent documentation and responsive support.
 
-. *To encourage contributions.* Lively discussions are taking place in https://github.com/tajmone/ST3-Asciidoctor/discussions and https://github.com/tajmone/ST3-Asciidoctor/issues.
+4. *To encourage contributions.* Lively discussions are taking place in https://github.com/tajmone/ST3-Asciidoctor/discussions and https://github.com/tajmone/ST3-Asciidoctor/issues.
 
 
 ## Issues
@@ -96,8 +97,8 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 |--------------------|-------------------------------------------|-------------------------------------------|
 | Bold/Strong        |  <kbd>Alt</kbd> + <kbd>B</kbd>                         | Surrounds with asterisks [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
 | Italics/Emphasis   |  <kbd>Alt</kbd> + <kbd>I</kbd>                         | Surrounds with underscores [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
-| Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                | Surrounds with `"``  ``"`                 |
-| Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                | Surrounds with `'``  ``'`                 |
+| Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                | Surrounds with `"`...`"`                 |
+| Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                | Surrounds with `'`...`'`                 |
 | Auto-Paired        | Asterisks, underscores, backticks, quotation marks | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
 | Lists and Callouts | <kbd>Enter</kbd>                          | Automatically sets up the next item [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
 | Comment/Uncomment  | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>/</kbd>) | AsciiDoc comments begin with `//` |
@@ -146,7 +147,7 @@ In the global symbol list, titles will start with `=`, so you will know they bel
 |-------------------------------------|----------------------------------------------------------------------------------|
 | AsciiDoc: Drag-and-Drop Images      | Generates `image::[]` macros for dropped images [DRAG_IMAGES.adoc](Docs/DRAG_IMAGES.adoc) |
 | AsciiDoc: Fix Up Converted Document | Applies various fixups to a freshly converted document (e.g. from MS Word to AsciiDoc via PanDoc) [FIXUP_CONVERTED.adoc](Docs/FIXUP_CONVERTED.adoc) |
-| AsciiDoc: Renumber Chapters         | If your chapter titles contain the chapter number (`== 99: ...` or `== Ninety Nine: ...`) -- or you want them to -- this will (re)number them if they get moved/deleted/inserted. [RENUMBER_CHAPTER.adoc](Docs/RENUMBER_CHAPTER.adoc)  |
+| AsciiDoc: Renumber Chapters         | If your chapter titles contain the chapter number (`== 99: ...` or `== Ninety Nine: ...`) -- or you want them to -- this will (re)number them if they get moved/deleted/inserted. [RENUMBER_CHAPTERS.adoc](Docs/RENUMBER_CHAPTERS.adoc)  |
 
 
 

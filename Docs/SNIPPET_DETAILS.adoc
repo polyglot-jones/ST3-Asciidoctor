@@ -1,0 +1,51 @@
+= Snippet Details
+
+[[btn]]
+== Button and Keyboard Macros
+
+(In case you are not familiar, the Button and Keyboard Shortcut snippets are for in-line macros that render the text to resemble UI buttons and keycaps, respectively.)
+
+----
+kbd:[Enter]
+btn:[OK]
+----
+
+
+[[anchored-subsection]]
+== Anchored Subsection
+
+These Anchor snippets ensure that your anchor names properly conform (lower-case, no spaces).
+
+Type this: `[[` kbd:[tab] Navigable Text
+
+And you get this:
+----
+[[navigable-text]]
+=== Navigable Text
+----
+
+[[anchor-reference]]
+== Anchor Reference
+
+These Anchor snippets ensure that your anchor names properly conform (lower-case, no spaces).
+
+Type this: `<<` kbd:[tab] Navigable Text
+
+And you get this:
+----
+<<navigable-text,Navigable Text>>
+----
+
+
+[[toc]]
+== Table of Contents
+
+Use the `toc` kbd:[tab] snippet to place this at the top of your document to tell AsciiDoc to insert a table of contents.
+
+----
+:toc: macro
+:toclevels: 1
+
+[[toc]]
+toc::[]
+----

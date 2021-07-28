@@ -79,66 +79,37 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 
 ## Keymaps
 
-* Ctrl-B surrounds the selected text with asterisks (for bold/strong). Hit it once for constrained. Hit it again for unconstrained. Note: If no text is selected, then Ctrl-B will invoke the build system.
-* Ctrl-I surrounds the selected text with underscores (for italics/emphasis). Hit it once for constrained. Hit it again for unconstrained.
-* Ctrl-" surrounds the selected text (or just the cursor) with typographical double quotes. 
-* Ctrl-' surrounds the selected text (or just the cursor) with typographical single quotes. 
-* Asterisks (strong), underscores (emphasis), backticks (monospaced), English quotation marks, and Czech quotation marks are autopaired and will wrap selected text.
-    - If you start an empty pair and hit backspace, both elements are deleted.
-    - If you start an empty asterisks pair and hit <kbd>Space</kbd> or <kbd>Tab</kbd>, the right element is deleted (because you probably wanted to start a list, not a strong text).
-* At the end of a (un)ordered list item, pressing <kbd>Enter</kbd> will automatically insert the new list item "bullet."
-    - Pressing <kbd>Enter</kbd> on the blank list item will remove it.
-    - Pressing <kbd>Tab</kbd> on the blank list item, or selected item(s), will increase nesting level and indent it.
-    - Pressing <kbd>Shift</kbd> <kbd>Tab</kbd> on the blank list item, or selected item(s), will decrease nesting level and unindent it.
-    - You can disable indentation of list items in your settings file.
-* At the end of a callouts list item, pressing <kbd>Enter</kbd> will automatically insert the new list item with incremented number.
-    - Pressing <kbd>Enter</kbd> on the blank list item will remove it.
+| Action             | Default Shortcut                          |   Notes                                   |
+|--------------------|-------------------------------------------|-------------------------------------------|
+| Bold/Strong        |  <kbd>Alt-B</kbd>                         | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
+| Italics/Emphasis   |  <kbd>Alt-I</kbd>                         | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
+| Typographical Double Quotes | <kbd>Ctrl-"</kbd>                | Surrounds with `"``  ``"`                 |
+| Typographical Single Quotes | <kbd>Ctrl-'</kbd>                | Surrounds with `'``  ``'`                 |
+| Auto-Paired        | Asterisks, underscores, backticks, quotation marks | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
+
 
 ## Snippets
 
-|        Name        |                  Trigger                  |
-|--------------------|-------------------------------------------|
-| Button             | `btn` <kbd>Tab</kbd>                      |
-| Comment Block      | `//` <kbd>Tab</kbd>                       |
-| Document Title     | `h0` <kbd>Tab</kbd>                       |
-| Example Block      |                                           |
-| Footnote Reference | `fnr` <kbd>Tab</kbd>                      |
-| Footnote           | `fn` <kbd>Tab</kbd>                       |
-| Image              | `img` <kbd>Tab</kbd>                      |
-| Keyboard Shortcut  | `kbd` <kbd>Tab</kbd>                      |
-| Listing Block      | `--` <kbd>Tab</kbd>                       |
-| Passthrough Block  |                                           |
-| Quote Block        | `__` <kbd>Tab</kbd> or `""` <kbd>Tab</kbd> |
-| Section Title 1–5  | `h1` <kbd>Tab</kbd> … `h5` <kbd>Tab</kbd> |
-| Sidebar block      |                                           |
-| Table              | `= `<kbd>Tab</kbd>                        |
-| Anchored Subsection| `[[` <kbd>Tab</kbd>                       |
-| Anchor Reference   | `<<` <kbd>Tab</kbd>                       |
+|        Name        |                  Trigger                  |   Notes                                   |
+|--------------------|-------------------------------------------|-------------------------------------------|
+| Button             | `btn` <kbd>Tab</kbd>         | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
+| Comment Block      | `//` <kbd>Tab</kbd>                       |                                           |
+| Document Title     | `h0` <kbd>Tab</kbd>                       |                                           |
+| Example Block      |                                           |                                           |
+| Footnote Reference | `fnr` <kbd>Tab</kbd>                      |                                           |
+| Footnote           | `fn` <kbd>Tab</kbd>                       |                                           |
+| Image              | `img` <kbd>Tab</kbd>                      |                                           |
+| Keyboard Shortcut  | `kbd` <kbd>Tab</kbd>         | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
+| Listing Block      | `--` <kbd>Tab</kbd>                       |                                           |
+| Passthrough Block  |                                           |                                           |
+| Quote Block        | `__` <kbd>Tab</kbd> or `""` <kbd>Tab</kbd>|                                           |
+| Section Title 1–5  | `h1` <kbd>Tab</kbd> … `h5` <kbd>Tab</kbd> |                                           |
+| Sidebar block      |                                           |                                           |
+| Table              | `= `<kbd>Tab</kbd>                        |                                           |
+| Anchored Subsection| `[[` <kbd>Tab</kbd>  | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#anchored-subsection) |
+| Anchor Reference   | `<<` <kbd>Tab</kbd>  | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#anchor-reference)    |
+| Table of Contents  | `toc` <kbd>Tab</kbd> | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#toc) |
 
-
-(In case you are not familiar, the Button and Keyboard Shortcut snippets are for in-line macros that render the text to resemble UI buttons and keycaps, respectively.)
-
-### Anchored Subsection
-
-This snippet ensures that your anchor names properly conform (lower-case, no spaces).
-
-Type this: `[[` <kbd>Tab</kbd> Navigable Text
-
-And you get this:
-```
-    [[navigable-text]]
-    === Navigable Text
-```
-
-
-### Anchor Reference
-
-Type this: `<<` <kbd>Tab</kbd> Navigable Text
-
-And you get this:
-```
-    <<navigable-text,Navigable Text>>
-```
 
 ## Others
 

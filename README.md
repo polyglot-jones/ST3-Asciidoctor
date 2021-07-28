@@ -97,8 +97,8 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 |--------------------|-------------------------------------------|-------------------------------------------|
 | Bold/Strong        |  <kbd>Alt</kbd> + <kbd>B</kbd>                         | Surrounds with asterisks [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
 | Italics/Emphasis   |  <kbd>Alt</kbd> + <kbd>I</kbd>                         | Surrounds with underscores [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
-| Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                | Surrounds with `"`...`"`                 |
-| Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                | Surrounds with `'`...`'`                 |
+| Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                |                              |
+| Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                |                              |
 | Auto-Paired        | Asterisks, underscores, backticks, quotation marks | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
 | Lists and Callouts | <kbd>Enter</kbd>                          | Automatically sets up the next item [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
 | Comment/Uncomment  | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>/</kbd>) | AsciiDoc comments begin with `//` |

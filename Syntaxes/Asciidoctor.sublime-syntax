@@ -182,7 +182,7 @@ contexts:
         # - match: ^.*$\n?
         #   scope: meta.block.literal.content.asciidoc
         # - include: inline_callout
-  
+
   #############
   # OPEN BLOCKS
   #############
@@ -209,8 +209,8 @@ contexts:
         - include: inline
         - include: characters
 
-  
-  
+
+
   #############
   # PASS BLOCKS
   #############
@@ -226,7 +226,7 @@ contexts:
           pop: true
       # - include: text.xml
 
-  
+
   ##############
   # QUOTE BLOCKS
   ##############
@@ -339,9 +339,9 @@ contexts:
   attribute_reference:
     - match: ({)([A-Za-z0-9_][A-Za-z0-9_-]*)(})
       captures:
-       1: constant.character.attributes.reference.begin.asciidoc
-       2: support.variable.attribute.asciidoc
-       3: constant.character.attributes.reference.end.asciidoc
+        1: constant.character.attributes.reference.begin.asciidoc
+        2: support.variable.attribute.asciidoc
+        3: constant.character.attributes.reference.end.asciidoc
 
   ################
   # BIBLIO ANCHORS
@@ -352,9 +352,9 @@ contexts:
   biblio_anchor:
     - match: (?<!\[)(\[\[\[)(.*?)(\]\]\])(?!\])
       captures:
-       1: punctuation.definition.biblioanchor.begin.asciidoc
-       2: storage.type.reference.biblioanch  or.asciidoc
-       3: punctuation.definition.biblioanchor.end.asciidoc
+        1: punctuation.definition.biblioanchor.begin.asciidoc
+        2: storage.type.reference.biblioanch  or.asciidoc
+        3: punctuation.definition.biblioanchor.end.asciidoc
 
   #################
   # NUMBER ENTITIES
@@ -1408,7 +1408,7 @@ contexts:
     - include: colist_item_marker
     - include: dlist_item_label
     - include: block_admonition_label
-  
+
 
   ########################
   # ADMONITION BLOCK LABEL

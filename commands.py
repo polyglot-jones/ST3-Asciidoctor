@@ -73,8 +73,8 @@ class AsciidocRunCommandsCommand(TextCommand):
 
 
 class AsciidocRenumberChaptersCommand(TextCommand):
-    """ 
-    Renumbers all chapter headings. 
+    """
+    Renumbers all chapter headings.
     For example, if you have
         ...
         == Chapter Nine: Saving the Cat
@@ -97,7 +97,7 @@ class AsciidocRenumberChaptersCommand(TextCommand):
         == Nine
         == 9
     Whatever format it finds, it will replicate.
-    """ 
+    """
     def run(self, edit):
         self._edit = edit
         self._process_text()
@@ -105,14 +105,12 @@ class AsciidocRenumberChaptersCommand(TextCommand):
     def _num_to_words(self, num):
         '''Convert an integer between 1-99 into words'''
         units = ['','one','two','three','four','five','six','seven','eight','nine']
-        teens = ['','eleven','twelve','thirteen','fourteen','fifteen','sixteen', \
-                 'seventeen','eighteen','nineteen']
-        tens = ['','ten','twenty','thirty','forty','fifty','sixty','seventy', \
-                'eighty','ninety']
+        teens = ['','eleven','twelve','thirteen','fourteen','fifteen','sixteen', 'seventeen','eighteen','nineteen']
+        tens = ['','ten','twenty','thirty','forty','fifty','sixty','seventy', 'eighty','ninety']
         words = []
         if num==0: words.append('zero')
         else:
-            numStr = '%d'% num 
+            numStr = '%d'% num
             numStr = numStr.zfill(2)
             t,u = int(numStr[0]),int(numStr[1])
             if t>1:
@@ -194,7 +192,7 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r"\|==+", "|===", txt)
 
         # convert m-dashes to AsciiDoc syntax
-        txt = re.sub(r"ó", "--", txt)
+        txt = re.sub(r"‚Äî", "--", txt)
 
         # Ensure exactly one space before and after ellipses and m-dashes that are mid-sentence (between words)
         txt = re.sub(r"(\w) *\.\.\.+ *(\w)", "\\1 ... \\2", txt)
@@ -227,11 +225,11 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r"``'", "`'", txt)
 
         # Undo smart quotes, making sure to distinguish a possessive apostrophe from a closing quote
-        txt = re.sub(r'ì', '"`', txt)
-        txt = re.sub(r'î', '`"', txt)
-        txt = re.sub(r"ë", "'`", txt)
-        txt = re.sub(r"(\w)í(\w)", "\\1'\\2", txt)
-        txt = re.sub(r"í", "`'", txt)
+        txt = re.sub(r'‚Äú', '"`', txt)
+        txt = re.sub(r'‚Äù', '`"', txt)
+        txt = re.sub(r"‚Äò", "'`", txt)
+        txt = re.sub(r"(\w)‚Äô(\w)", "\\1'\\2", txt)
+        txt = re.sub(r"‚Äô", "`'", txt)
 
         # Ensure bullet point syntax (exactly one space following)
         txt = re.sub(r"^(-+|\*+|\.+) *", "\\1 ", txt)
@@ -260,4 +258,4 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r' *-- *`"', '{mdash}`"', txt)
 
         self._update_file(txt)
-        
+

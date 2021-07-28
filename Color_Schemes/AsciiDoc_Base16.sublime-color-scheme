@@ -1,12 +1,12 @@
 // This is a SublimeText color scheme for syntax highlighting AsciiDoc markup.
 //
-// It utilizes the "Base16" architecture invented by Chris Kempson 
+// It utilizes the "Base16" architecture invented by Chris Kempson
 // (see https://github.com/chriskempson/base16) -- a standardized palette
 // of sixteen colors with suggested assignments for each slot (e.g. use
 // base0A for bold text, and use base08 for the background of error messages).
 // (Note that we are not limited to exactly those 16 colors. You'll see that
 // we do a lot of adjusting and blending below.)
-// 
+//
 // In the most basic form, as we are using here, the first eight palette slots
 // are a grey-scale from dark to light and the second eight are the primary
 // colors of the rainbow (Remember "ROY-G-BIV" from school?). It makes for a
@@ -14,11 +14,11 @@
 // https://github.com/chriskempson/base16#scheme-repositories you'll see a ton
 // of alternative schemes that designers have posted.
 //
-// For example, Dark Violet by ruler501 uses mostly colors from the blue/purple 
+// For example, Dark Violet by ruler501 uses mostly colors from the blue/purple
 // end of the spectrum; and Equilibrium Gray Light by Carlo Abelli is a "light"
 // scheme with muted colors.
 //
-// Simply make a copy of this file and change the definitions of "base00" thru 
+// Simply make a copy of this file and change the definitions of "base00" thru
 // "base0F" to match the color scheme of your choosing. (When you save the file,
 // change the "Base16" part of the name to the name of the selected scheme.)
 
@@ -28,21 +28,21 @@
     "variables":
     {
         "base00" : "#000000" ,
-        "base01" : "#222222" , 
+        "base01" : "#222222" ,
         "base02" : "#444444" ,
-        "base03" : "#666666" , 
-        "base04" : "#888888" , 
+        "base03" : "#666666" ,
+        "base04" : "#888888" ,
         "base05" : "#bbbbbb" ,
-        "base06" : "#dddddd" , 
+        "base06" : "#dddddd" ,
         "base07" : "#ffffff" ,
-        "base08" : "#FF0000" , 
+        "base08" : "#FF0000" ,
         "base09" : "#FFA500" ,
-        "base0A" : "#FFFF00" ,     
-        "base0B" : "#00FF00" ,   
-        "base0C" : "#0000FF" ,    
+        "base0A" : "#FFFF00" ,
+        "base0B" : "#00FF00" ,
+        "base0C" : "#0000FF" ,
         "base0D" : "#800080" ,
-        "base0E" : "#FF00FF" ,   
-        "base0F" : "#A52A2A" ,   
+        "base0E" : "#FF00FF" ,
+        "base0F" : "#A52A2A" ,
         "background_changed": "var(base02)",
         "background_dark": "var(base01)",
         "background_deleted": "color(var(base08) blend(#888 50%))",
@@ -145,7 +145,7 @@
             "scope": "support",
             "foreground": "var(support)"
         },
-       {
+        {
             "name": "Anchors",
             "scope": "markup.anchor",
             "foreground": "var(support)"

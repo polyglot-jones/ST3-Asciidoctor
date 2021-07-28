@@ -1,4 +1,4 @@
- <snippet>
+<snippet>
   <description>Table of Contents</description>
   <content><![CDATA[
 :toc: macro

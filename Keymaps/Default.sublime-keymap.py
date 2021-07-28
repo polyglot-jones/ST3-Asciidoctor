@@ -196,7 +196,7 @@ Keymap(
 
     bind("ctrl+'")
         .to('insert_snippet', contents="'`${0:$SELECTION}`'"),
-        
+
     common_context=[
         context('selector').equal('text.asciidoc'),
         context('selector').not_equal('markup.raw')

@@ -7,4 +7,3 @@ It's a 2-step process:
 . Switch back to the tab with your AsciiDoc document and invoke the "`AsciiDoc: Drag Images`" command.
 
 It will make a list of all of the file names of the open image tabs, closing each tab as it goes. (All non-image tabs are left alone.) Then, it will insert `image::path/image.jpg[]` into the document at the cursor -- one line per image -- where "`path/image.jpg`" is the actual path, name, and extension of the image.
-

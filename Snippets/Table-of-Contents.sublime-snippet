@@ -1,0 +1,12 @@
+ <snippet>
+  <description>Table of Contents</description>
+  <content><![CDATA[
+:toc: macro
+:toclevels: 1
+
+[[toc]]
+toc::[]
+$0]]></content>
+  <tabTrigger>toc</tabTrigger>
+  <scope>text.asciidoc</scope>
+</snippet>

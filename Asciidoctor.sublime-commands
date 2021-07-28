@@ -1,3 +1,5 @@
 [
-  { "caption": "AsciiDoc: Fix Up Converted Prose","command": "asciidoc_prose_fixup" }
+  { "caption": "AsciiDoc: Fix Up Converted Prose","command": "asciidoc_prose_fixup" },
+  { "caption": "Asciidoc: Renumber Chapters","command": "asciidoc_renumber_chapters" },
+  { "caption": "AsciiDoc: Gather Dropped Images","command": "asciidoc_gather_dropped_images" }
 ]

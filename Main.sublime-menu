@@ -12,8 +12,10 @@
             "command": "asciidoc_renumber_chapters" },
           {
             "caption": "Fix Up Converted Prose",
-            "command": "asciidoc_prose_fixup"
-          }
+            "command": "asciidoc_prose_fixup" },
+          {
+            "caption": "Gather Dropped Images",
+            "command": "asciidoc_gather_dropped_images" }
         ]
       }
     ]

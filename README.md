@@ -1,6 +1,6 @@
-# Asciidoctor Package for SublimeText 3
+# AsciiDoctor Package for SublimeText 3 and 4
 
-Adds [AsciiDoc] support to [SublimeText 3], targeting [Asciidoctor].
+Adds [AsciiDoc] support to [SublimeText 3] and 4, targeting [Asciidoctor].
 
 - https://github.com/tajmone/ST3-Asciidoctor
 
@@ -15,9 +15,12 @@ Adds [AsciiDoc] support to [SublimeText 3], targeting [Asciidoctor].
     - [Goals](#goals)
     - [Issues](#issues)
 - [Features](#features)
+    - [Syntax Highlighting](#syntax-highlighting)
     - [Keymaps](#keymaps)
     - [Snippets](#snippets)
-    - [Others](#others)
+    - [Symbol Lists](#symbol-lists)
+    - [Completions](#completions)
+    - [Special-Purpose Commands](#special-purpose-commands)
 - [Installation](#installation)
 - [Credits](#credits)
 - [Acknowledgments](#acknowledgments)
@@ -31,39 +34,46 @@ Adds [AsciiDoc] support to [SublimeText 3], targeting [Asciidoctor].
 
 # About
 
-This my personal fork of the __[sublimetext-asciidoc]__ package from the [Asciidoctor Project], created by [Matt Neuburg] and [Jakub Jirutka]:
+This is a SublimeText plug-in (package) that enhances the experience of writing documents using AsciiDoc (AsciiDoctor) markup.
+At a high level, this package offers:
 
-- https://github.com/asciidoctor/sublimetext-asciidoc
-
-The original package didn't perform too well, frequently breaking up documents highlighting in various common use cases.
-The upstream repository has been stale since August 2015, and various third party pull requests with fixes to the known problems were never merged.
-
-Furthermore, the original package uses the old `.tmLanguage` syntax format.
-
+- Syntax Highlighting (with customizable color schemes)
+- A (growing) library of snippets to save on typing common elements
+- A (growing) library of commands that do some "heavy lifting"
+- Configuration settings that tell SublimeText how to best work with AsciiDoc (e.g. build commands that generate HTML and EPUB output).
 
 ## Project Status
 
-This package is a "usable Alpha".
-It's usable since I actually use it every day to work on big sized AsciiDoc projects, but it's still in its Alpha stage since I might arbitrarily change the scopes naming convention at any time.
+This is a fork of the __[sublimetext-asciidoc]__ package from the [Asciidoctor Project], created by [Matt Neuburg] and [Jakub Jirutka]:
+
+- https://github.com/asciidoctor/sublimetext-asciidoc
+
+The original package is buggy, and that repository has not been maintained (stale since August 2015).
+Numerous pull requests with fixes to some of the known problems were never merged.
+Furthermore, the original package uses the old `.tmLanguage` syntax format.
+
+This fork addressed all of that and has becomes a "usable Alpha" as of early 2021.
+It's used daily by many folks on large, complicated AsciiDoc projects.
+However, the implementation details are subject to change (e.g. how the syntax scopes are named).
 
 Here's a brief summary of how the original package was improved so far:
 
-- The AsciiDoc syntax was ported from the old `.tmLanguage` syntax format of __Sublime Text 2__ to the `.sublime-syntax` format of __Sublime Text 3__.
-- Before migrating to the `.sublime-syntax` format, I've integrated some third party fixes to know problems, which I found in other forks of the upstream repository (see [Credits section] further break-downs).
-- I've added syntax tests to spot broken features and monitor syntax integrity during development.
-- I've either fixed or temporarily disabled the markup elements that were breaking up documents.
+- The AsciiDoc syntax was ported from the old `.tmLanguage` syntax format of __Sublime Text 2__ to the `.sublime-syntax` format of __Sublime Text 3__. (Before migrating, several third party fixes to known problems found in other forks were incorporated. See [Credits section].)
+- A suite of syntax tests were added to maintain integrity during development.
+- Poorly handled syntax highlighting (for certain markup elements) have either been fixed or disabled.
 
 ## Goals
 
-Since I work with AsciiDoc on a daily basis, I need a package that I can rely on, which doesn't break up a document when I use certain markup elements in a same context, or because some special characters are being wrongly parsed as markup formatting.
+. *Not settling for a poor syntax-highlighting implementation.* The old (`.tmLanguage`) syntax definition often misinterpreted perfectly valid syntax as being something else. This would cause the highlighting to go wonky part-way through the document.
+So markup features that were causing trouble have been disabled here, because "less is more" when having to chose between feature richness and features that actually work.
 
-I was tired of having to resort to horrible hacks to prevent documents break down just because the original syntax was parsing special characters like `*`, `_` or `^` as opening quoting markers, for which there was no closing delimiter, when they were used for other legitimate markup purposes.
+. *To reach enough maturity to warrant becoming a full-fledged package hosted on [Package Control].*
+Unless and until somebody surprises the AsciiDoc community by releasing an AsciiDoc [language server], this package will have to suffice.
 
-So I've opted to temporary disable any markup features which were causing trouble, because "less is more" when you have to chose between feature richness and features that actually work without breaking documents in real usage scenarios.
+. *To provide excellent documentation and responsive support to encourage adoption and feedback.*
 
-My main goal is just to have a reliable AsciiDoc syntax which I can use in my daily work; I don't yet know if this project will ever reach maturity and become a full-fledged package hosted on [Package Control].
-I keep hoping that one day someone will surprise the AsciiDoc community by releasing an AsciiDoc [language server] — which I believe it's the only viable way to implement a reliable and feature-rich AsciiDoc package.
-In the meantime, I'll keep doing my best to improve this package, hoping that third parties might join in and contribute to its growth.
+. *To encourage contributions.* Lively discussions are taking place in https://github.com/tajmone/ST3-Asciidoctor/discussions and https://github.com/tajmone/ST3-Asciidoctor/issues.
+
 
 ## Issues
 
@@ -77,15 +87,22 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 
 # Features
 
+## Syntax Highlighting
+
+
 ## Keymaps
 
 | Action             | Default Shortcut                          |   Notes                                   |
 |--------------------|-------------------------------------------|-------------------------------------------|
-| Bold/Strong        |  <kbd>Alt-B</kbd>                         | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
-| Italics/Emphasis   |  <kbd>Alt-I</kbd>                         | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
-| Typographical Double Quotes | <kbd>Ctrl-"</kbd>                | Surrounds with `"``  ``"`                 |
-| Typographical Single Quotes | <kbd>Ctrl-'</kbd>                | Surrounds with `'``  ``'`                 |
+| Bold/Strong        |  <kbd>Alt</kbd> + <kbd>B</kbd>                         | Surrounds with asterisks [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
+| Italics/Emphasis   |  <kbd>Alt</kbd> + <kbd>I</kbd>                         | Surrounds with underscores [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
+| Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                | Surrounds with `"``  ``"`                 |
+| Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                | Surrounds with `'``  ``'`                 |
 | Auto-Paired        | Asterisks, underscores, backticks, quotation marks | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
+| Lists and Callouts | <kbd>Enter</kbd>                          | Automatically sets up the next item [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
+| Comment/Uncomment  | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>/</kbd>) | AsciiDoc comments begin with `//` |
+| Build as HTML      | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>B</kbd>) | Requires that `asciidoctor` be installed. |
+| Build as EPUB      | Use <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>) to select this builder | Requires that `asciidoctor-epub3` be installed. |
 
 
 ## Snippets
@@ -111,13 +128,27 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 | Table of Contents  | `toc` <kbd>Tab</kbd> | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#toc) |
 
 
-## Others
+## Symbol Lists
 
-* Displays document and section titles in the local symbol list ( <kbd>Ctrl</kbd> <kbd>R</kbd> / <kbd>Cmd</kbd> <kbd>R</kbd>) and the global symbol list ( <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> / <kbd>Cmd</kbd> <kbd>Shift</kbd> <kbd>R</kbd>).
-    - In the local symbol list, titles are nicely indented.
-    - In the global symbol list, titles will start with `=`, so you will know they belong to AsciiDoc files at a glance. Also they will be on top of the list because of the presedence of `=`.
-* Defines [comment markers], so you can use [default commands] to comment and uncomment lines of text.
+Document and section titles are displayed in the local symbol list ( <kbd>Ctrl</kbd> + <kbd>R</kbd> / <kbd>Cmd</kbd> + <kbd>R</kbd>) and the global symbol list ( <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> / <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>).
+In the local symbol list, titles are nicely indented.
+In the global symbol list, titles will start with `=`, so you will know they belong to AsciiDoc files at a glance. Also they will be on top of the list because of the precedence of `=`.
+
+
+## Completions
+
 * Provides completions for attributes (built-in and locally defined) and cross references (local anchors and titles).
+
+
+## Special-Purpose Commands
+
+|        Command                      |   Notes                                                                          |
+|-------------------------------------|----------------------------------------------------------------------------------|
+| AsciiDoc: Drag-and-Drop Images      | Generates `image::[]` macros for dropped images [DRAG_IMAGES.adoc](Docs/DRAG_IMAGES.adoc) |
+| AsciiDoc: Fix Up Converted Document | Applies various fixups to a freshly converted document (e.g. from MS Word to AsciiDoc via PanDoc) [FIXUP_CONVERTED.adoc](Docs/FIXUP_CONVERTED.adoc) |
+| AsciiDoc: Renumber Chapters         | If your chapter titles contain the chapter number (`== 99: ...` or `== Ninety Nine: ...`) -- or you want them to -- this will (re)number them if they get moved/deleted/inserted. [RENUMBER_CHAPTER.adoc](Docs/RENUMBER_CHAPTER.adoc)  |
+
+
 
 # Installation
 

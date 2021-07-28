@@ -79,6 +79,10 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 
 ## Keymaps
 
+* Ctrl-B surrounds the selected text with asterisks (for bold/strong). Hit it once for constrained. Hit it again for unconstrained. Note: If no text is selected, then Ctrl-B will invoke the build system.
+* Ctrl-I surrounds the selected text with underscores (for italics/emphasis). Hit it once for constrained. Hit it again for unconstrained.
+* Ctrl-" surrounds the selected text (or just the cursor) with typographical double quotes. 
+* Ctrl-' surrounds the selected text (or just the cursor) with typographical single quotes. 
 * Asterisks (strong), underscores (emphasis), backticks (monospaced), English quotation marks, and Czech quotation marks are autopaired and will wrap selected text.
     - If you start an empty pair and hit backspace, both elements are deleted.
     - If you start an empty asterisks pair and hit <kbd>Space</kbd> or <kbd>Tab</kbd>, the right element is deleted (because you probably wanted to start a list, not a strong text).

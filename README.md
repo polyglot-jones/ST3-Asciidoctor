@@ -1,4 +1,4 @@
-# AsciiDoctor Package for SublimeText 3 and 4
+# Asciidoctor Package for SublimeText 3 and 4
 
 Adds [AsciiDoc] support to [SublimeText 3] and 4, targeting [Asciidoctor].
 
@@ -15,6 +15,7 @@ Adds [AsciiDoc] support to [SublimeText 3] and 4, targeting [Asciidoctor].
     - [Goals](#goals)
     - [Issues](#issues)
 - [Features](#features)
+    - [File Associations](#file-associations)
     - [Syntax Highlighting](#syntax-highlighting)
     - [Keymaps](#keymaps)
     - [Snippets](#snippets)
@@ -40,7 +41,8 @@ At a high level, this package offers:
 - Syntax Highlighting (with customizable color schemes)
 - A (growing) library of snippets to save on typing common elements
 - A (growing) library of commands that do some "heavy lifting"
-- Configuration settings that tell SublimeText how to best work with AsciiDoc (e.g. build commands that generate HTML and EPUB output).
+- Configuration settings that tell SublimeText how to best work with AsciiDoc (e.g. file associations, and build commands that generate HTML and EPUB output).
+
 
 ## Project Status
 
@@ -88,7 +90,16 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 
 # Features
 
+
+## File Associations
+
+This package associates AsciiDoc with files that end in: `.ad`, `.adoc`, or `.asciidoc`.
+
+
 ## Syntax Highlighting
+
+This package includes an AsciiDoc-specific syntax definition.
+With it, SublimeText will accordingly apply a (customizable) color scheme to any AsciiDoc file.
 
 
 ## Keymaps
@@ -99,8 +110,8 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 | Italics/Emphasis   |  <kbd>Alt</kbd> + <kbd>I</kbd>                         | Surrounds with underscores [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)       |
 | Typographical Double Quotes | <kbd>Ctrl</kbd> + <kbd>"</kbd>                |                              |
 | Typographical Single Quotes | <kbd>Ctrl</kbd> + <kbd>'</kbd>                |                              |
-| Auto-Paired        | Asterisks, underscores, backticks, quotation marks | [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
-| Lists and Callouts | <kbd>Enter</kbd>                          | Automatically sets up the next item [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
+| Auto-Paired        | Asterisks, underscores, backticks, quotation marks | See [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
+| Lists and Callouts | <kbd>Enter</kbd>                          | Automatically sets up the next item. See [KEYMAP_DETAILS.adoc](Docs/KEYMAP_DETAILS.adoc)  |
 | Comment/Uncomment  | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>/</kbd>) | AsciiDoc comments begin with `//` |
 | Build as HTML      | SublimeText's default (usually <kbd>Ctrl</kbd> + <kbd>B</kbd>) | Requires that `asciidoctor` be installed. |
 | Build as EPUB      | Use <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>) to select this builder | Requires that `asciidoctor-epub3` be installed. |
@@ -110,14 +121,14 @@ For the above reasons, it's possible that during the Alpha stage various syntax 
 
 |        Name        |                  Trigger                  |   Notes                                   |
 |--------------------|-------------------------------------------|-------------------------------------------|
-| Button             | `btn` <kbd>Tab</kbd>         | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
+| Button             | `btn` <kbd>Tab</kbd>         | See [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
 | Comment Block      | `//` <kbd>Tab</kbd>                       |                                           |
 | Document Title     | `h0` <kbd>Tab</kbd>                       |                                           |
 | Example Block      |                                           |                                           |
 | Footnote Reference | `fnr` <kbd>Tab</kbd>                      |                                           |
 | Footnote           | `fn` <kbd>Tab</kbd>                       |                                           |
 | Image              | `img` <kbd>Tab</kbd>                      |                                           |
-| Keyboard Shortcut  | `kbd` <kbd>Tab</kbd>         | [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
+| Keyboard Shortcut  | `kbd` <kbd>Tab</kbd>         | See [SNIPPET_DETAILS.adoc](Docs/SNIPPET_DETAILS.adoc#btn)  |
 | Listing Block      | `--` <kbd>Tab</kbd>                       |                                           |
 | Passthrough Block  |                                           |                                           |
 | Quote Block        | `__` <kbd>Tab</kbd> or `""` <kbd>Tab</kbd>|                                           |

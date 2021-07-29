@@ -2,16 +2,16 @@
 ---
 # "Asciidoctor.sublime-syntax" v0.0.30 | 2020/11/15
 # ==============================================================================
-#                        AsciiDoc Syntax for AsciiDoctor
+#                        AsciiDoc Syntax for Asciidoctor
 # ==============================================================================
-# Syntax definition for AsciiDoctor:
+# Syntax definition for Asciidoctor:
 # -- https://asciidoctor.org/
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 # Copyright (c) Tristano Ajmone, 2019. MIT License.
 # ------------------------------------------------------------------------------
 
-name:    AsciiDoc (AsciiDoctor)
+name:    AsciiDoc (Asciidoctor)
 comment: AsciiDoc Syntax
 file_extensions:
   - ad
@@ -346,6 +346,7 @@ contexts:
   ################
   # BIBLIO ANCHORS
   ################
+  # Bibliography anchor
   # Examples:
   #   [[[Lorem ipsum]]]
 
@@ -585,7 +586,6 @@ contexts:
   ######################
   # ATTRIBUTE LIST
   ######################
-  # Emphasized (italic) text (constrained variant).
   #
   # Examples:
   #   [Lorem ipsum] dolor
@@ -1478,7 +1478,7 @@ contexts:
   #   Last::label:: dolor sit amet
 
   # @NOTE (ORIGINAL):
-  #     This rule is not strictly correct, because AsciiDoctor allows
+  #     This rule is not strictly correct, because Asciidoctor allows
   #     double colon followed by a space inside a label, i.e. it matches the
   #     *last* double colon, not the first. I don't know how to do that
   #     *effectively.

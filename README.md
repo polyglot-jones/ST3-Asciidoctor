@@ -61,7 +61,8 @@ The "alpha" status merely reflects that implementation details are subject to ch
 
 Here's a brief summary of how the original package was improved so far:
 
-- The AsciiDoc syntax was ported from the old `.tmLanguage` syntax format of __Sublime Text 2__ to the `.sublime-syntax` format of __Sublime Text 3__. (Before migrating, several third party fixes to known problems found in other forks were incorporated. See [Credits section].)
+- The AsciiDoc syntax was ported from the old `.tmLanguage` syntax format of __Sublime Text 2__ to the `.sublime-syntax` format of __Sublime Text 3__.
+(Before migrating, several third party fixes to known problems found in other forks were incorporated. See [Credits section].)
 - A suite of syntax tests were added to maintain integrity during development.
 - Poorly handled syntax highlighting (for certain markup elements) have either been fixed or disabled.
 

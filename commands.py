@@ -155,6 +155,58 @@ class AsciidocRenumberChaptersCommand(TextCommand):
         self._update_file( "\n".join(result))
 
 
+class AsciidocUpdateSyntaxCommand(TextCommand):
+    """
+    Cleans up old-style AsciiDoc syntax to the AsciiDoctor flavor.
+
+    * Changes underlined title to = prefix
+    * Changes `` '' quotations to "` `"
+
+    """
+    def run(self, edit):
+        self._edit = edit
+        self._process_text()
+
+    def _get_file_content(self):
+        return self.view.substr(sublime.Region(0, self.view.size()))
+
+    def _update_file(self, doc):
+        self.view.replace(self._edit, sublime.Region(0, self.view.size()), doc)
+
+    def _process_text(self):
+        txt = self._get_file_content()
+
+        # set aside scene breaks
+        txt = re.sub(r"^'''+$", "--scene--break--goes--here--", txt, flags=re.MULTILINE)
+
+        # typographic double-quote syntax
+        txt = re.sub(r"^``([^`])", "\"`\\1", txt, flags=re.MULTILINE)
+        txt = re.sub(r" ``([^`])", " \"`\\1", txt)
+        txt = re.sub(r"([^'])''", "\\1`\"", txt)
+        txt = re.sub(r'``"', '`"', txt)
+
+        # # typographic single-quote syntax
+        # txt = re.sub(r"^`([^`])", "'`\\1", txt, flags=re.MULTILINE)
+        # txt = re.sub(r" `([^`])", " '`\\1", txt)
+        # txt = re.sub(r"([^'])'([- .,!?])", "\\1`'\\2", txt)
+        # txt = re.sub(r"``'", "`'", txt)
+
+        # restore scene breaks
+        txt = re.sub(r"^--scene--break--goes--here--$", "'''", txt, flags=re.MULTILINE)
+
+        # AsciiDoctor can't handle m-dashes at the end of a quotation.
+        txt = re.sub(r' *-- *`"', '{mdash}`"', txt)
+
+        # Title
+        if not txt.startswith("= "):
+            lines = txt.splitlines()
+            if lines[1] == "=" * len(lines[0]):
+                lines[0] = "= " + lines[0]
+                lines[1] = ""
+                txt = "\n".join(lines)
+
+        self._update_file(txt)
+
 class AsciidocProseFixupCommand(TextCommand):
     """
     Cleans up a manuscript that has been converted to AsciiDoc, e.g. by PanDoc...
@@ -208,15 +260,15 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r"Figure (\d+)", "<<fig-\\1>>", txt)
 
         # Smarten dumb quotes (make them typographic)
-        txt = re.sub(r"(^|[^a-z])'(em|do|tis|twas|til)\b", "\\1{rsquo}\\2", txt, flags=re.IGNORECASE)
-        txt = re.sub(r"^\"", '"`', txt)
-        txt = re.sub(r'^_"', '"`_', txt)
+        txt = re.sub(r"(^|[^a-z])'(em|do|tis|twas|til)\b", "\\1{rsquo}\\2", txt, flags=re.IGNORECASE + re.MULTILINE)
+        txt = re.sub(r"^\"", '"`', txt, flags=re.MULTILINE)
+        txt = re.sub(r'^_"', '"`_', txt, flags=re.MULTILINE)
         txt = re.sub(r' "', ' "`', txt)
-        txt = re.sub(r'"_(\W*)$', '_`"\\1', txt)
-        txt = re.sub(r'"(\W*)$', '`"\\1', txt)
+        txt = re.sub(r'"_(\W*)$', '_`"\\1', txt, flags=re.MULTILINE)
+        txt = re.sub(r'"(\W*)$', '`"\\1', txt, flags=re.MULTILINE)
         txt = re.sub(r'"([- .,!?])', '`"\\1', txt)
         txt = re.sub(r'"_([- .,!?])', '_`"\\1', txt)
-        txt = re.sub(r"^'", "'`", txt)
+        txt = re.sub(r"^'", "'`", txt, flags=re.MULTILINE)
         txt = re.sub(r" '", " '`", txt)
         txt = re.sub(r"'\n", "`'", txt)
         txt = re.sub(r"'([- .,!?])", "`'\\1", txt)
@@ -232,7 +284,7 @@ class AsciidocProseFixupCommand(TextCommand):
         txt = re.sub(r"’", "`'", txt)
 
         # Ensure bullet point syntax (exactly one space following)
-        txt = re.sub(r"^(-+|\*+|\.+) *", "\\1 ", txt)
+        txt = re.sub(r"^(-+|\*+|\.+) *", "\\1 ", txt, flags=re.MULTILINE)
 
         # Fix transposed end-of-quotation punctuation -- that is, the punctuation goes inside the quotes
         txt = re.sub(r'`"(,|\.|\?|\!)', "\\1`\"", txt)
@@ -260,7 +312,7 @@ class AsciidocProseFixupCommand(TextCommand):
         self._update_file(txt)
 
 
-class AsciidocGatherDroppedImagesCommand(sublime_plugin.TextCommand):
+class AsciidocGatherDroppedImagesCommand(TextCommand):
     def run(self, edit):
         self._edit = edit
         filenames = self._gather_images()

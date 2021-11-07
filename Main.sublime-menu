@@ -14,6 +14,9 @@
             "caption": "Fix Up Converted Prose",
             "command": "asciidoc_prose_fixup" },
           {
+            "caption": "Update to AsciiDoctor Syntax",
+            "command": "asciidoc_update_syntax" },
+          {
             "caption": "Gather Dropped Images",
             "command": "asciidoc_gather_dropped_images" }
         ]

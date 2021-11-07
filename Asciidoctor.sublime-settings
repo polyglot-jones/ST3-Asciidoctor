@@ -27,7 +27,7 @@
   "auto_complete_triggers": [
 
     // This has the effect only when "auto_match_enabled" is false, otherwise
-    // it's overrided by the auto-pair keymap. Thus there's another keymap that
+    // it's overridden by the auto-pair keymap. Thus there's another keymap that
     // triggers auto completion when both "auto_match_enabled" and
     // "auto_complete" is enabled.
     { "selector": "text.asciidoc - source - markup.raw", "characters": "{" }
@@ -41,9 +41,13 @@
   // character when saving.
   "ensure_newline_at_eof_on_save": true,
 
-  // Set to true to removing trailing white space on save.
+  // Set to true to remove trailing white space on save.
   "trim_trailing_white_space_on_save": true,
 
   // Characters that are considered to separate words
-  "word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`?…\u00A0„“”"
+  // 9/4/2021 -- We removed hyphen from this list when adding support for GOTO-Definition
+  // and GOTO-Reference from a link to a block ID, since block IDs can contain
+  // hyphens. Side effect: Hyphenated words within the document text are now considered a
+  // single word (when double-clicking and when navigating to the next/previous word).
+  "word_separators": "./\\()\"':,.;<>~!@#$%^&*|+=[]{}`?…\u00A0„“”"
 }

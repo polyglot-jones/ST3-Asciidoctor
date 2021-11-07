@@ -551,12 +551,12 @@ contexts:
   #   <<lorem, see here>>
 
   xref:
-    - match: (?<!<)(<<)([^,]*?,\s*)((.*?))?(>>)(?!<)
+    - match: (?<!<)(<<)([^,>]*?)\s*,+\s*([^>]*)(>>)(?!<)
       captures:
         1: constant.character.xref.begin.asciidoc
         2: variable.parameter.xref.link.asciidoc
-        4: variable.parameter.xref.display.asciidoc
-        5: constant.character.xref.end.asciidoc
+        3: variable.parameter.xref.display.asciidoc
+        4: constant.character.xref.end.asciidoc
       scope: meta.xref.asciidoc
 
 #*******************************************************************************

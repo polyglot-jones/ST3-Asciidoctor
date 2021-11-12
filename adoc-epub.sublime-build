@@ -1,5 +1,0 @@
-{
-    "working_dir": "$file_path",
-    "shell_cmd": "asciidoctor-epub3 $file_name",
-    "selector": "text.asciidoc"
-}

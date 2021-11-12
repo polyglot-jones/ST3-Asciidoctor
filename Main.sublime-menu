@@ -8,6 +8,9 @@
         "mnemonic": "A",
         "children": [
           {
+            "caption": "Convert Selection(s) to Link(s)",
+            "command": "asciidoc_linkify" },
+          {
             "caption": "Renumber Chapters",
             "command": "asciidoc_renumber_chapters" },
           {

@@ -339,3 +339,22 @@ class AsciidocGatherDroppedImagesCommand(TextCommand):
                 results.append(sheet.file_name())
                 sheet.close()
         return results
+
+
+
+class AsciidocLinkify(TextCommand):
+    """
+    Coverts the selected text to an AsciiDoc link.
+    "Apple Pie" -> <<apple-pie,Apple Pie>>
+    Works with multiple selections.
+    """
+    def run(self, edit):
+        self._edit = edit
+        for i,region in enumerate(self.view.sel()):
+            link_text = self.view.substr(region).strip()
+            if len(link_text) == 0:
+                continue
+                # TODO expand selection to word
+            block_id = re.sub(r' ', r'-', link_text.lower().strip())
+            block_id = re.sub(r'[^-0-9a-z]', r'', block_id)
+            self.view.replace(self._edit, region, "<<{},{}>>".format(block_id,link_text))

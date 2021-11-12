@@ -2,5 +2,6 @@
   { "caption": "AsciiDoc: Fix Up Converted Prose","command": "asciidoc_prose_fixup" },
   { "caption": "AsciiDoc: Update to AsciiDoctor Syntax","command": "asciidoc_update_syntax" },
   { "caption": "Asciidoc: Renumber Chapters","command": "asciidoc_renumber_chapters" },
-  { "caption": "AsciiDoc: Gather Dropped Images","command": "asciidoc_gather_dropped_images" }
+  { "caption": "AsciiDoc: Gather Dropped Images","command": "asciidoc_gather_dropped_images" },
+  { "caption": "AsciiDoc: Convert Selection(s) to Link(s)","command": "asciidoc_linkify" }
 ]

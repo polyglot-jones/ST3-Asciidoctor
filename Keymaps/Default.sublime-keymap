@@ -1843,6 +1843,32 @@
   },
   {
     "keys": [
+      "alt+l"
+    ],
+    "command": "asciidoc_linkify",
+    "context": [
+      {
+        "key": "selection_empty",
+        "operator": "equal",
+        "operand": false,
+        "match_all": true
+      },
+      {
+        "key": "selector",
+        "operator": "equal",
+        "operand": "text.asciidoc",
+        "match_all": true
+      },
+      {
+        "key": "selector",
+        "operator": "not_equal",
+        "operand": "markup.raw",
+        "match_all": true
+      }
+    ]
+  },
+  {
+    "keys": [
       "ctrl+b"
     ],
     "command": "insert_snippet",

@@ -183,6 +183,10 @@ Keymap(
         .also('preceding_text').regex_match('^\\s*(?:[*.-]+|<\\d+>)\\s+$')
         .also('following_text').regex_match('^\\s*$'),
 
+    bind('alt+l')
+        .to('asciidoc_linkify')
+        .when('selection_empty').false(),
+
     bind('ctrl+b')
         .to('insert_snippet', contents='*${0:$SELECTION}*')
         .when('selection_empty').false(),
